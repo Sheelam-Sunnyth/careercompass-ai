@@ -420,8 +420,7 @@ See [Runtime Validation Report](docs/runtime-validation-report.md) for detailed 
 
 **Sunnyth Reddy**
 
-- GitHub: [Your GitHub Profile](https://github.com/YOUR_USERNAME)
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/YOUR_PROFILE/)
+- GitHub: https://github.com/Sheelam-Sunnyth
 
 ---
 

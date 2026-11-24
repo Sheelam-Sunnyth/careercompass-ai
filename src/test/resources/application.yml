@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:career;MODE=MySQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  flyway:
+    enabled: false
+app:
+  jwt:
+    secret: unit-test-secret-that-is-long-enough-for-hs256
+  gemini:
+    api-key: ""

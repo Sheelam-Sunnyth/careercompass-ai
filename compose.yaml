@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-career_assistant_db}
+      MYSQL_USER: ${MYSQL_USER:-career_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-career_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change-me}
+    ports: ["3307:3306"]
+    volumes: [mysql-data:/var/lib/mysql]
+  chromadb:
+    image: chromadb/chroma:1.0.20
+    ports: ["8000:8000"]
+    volumes: [chroma-data:/chroma/chroma]
+  app:
+    build: .
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-career_assistant_db}?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER:-career_user}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD:-career_password}
+      JWT_SECRET: ${JWT_SECRET}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.5-flash-lite}
+      GEMINI_EMBEDDING_MODEL: ${GEMINI_EMBEDDING_MODEL:-gemini-embedding-2}
+      CHROMA_URL: http://chromadb:8000
+      UPLOAD_DIR: /app/uploads
+    ports: ["8080:8080"]
+    volumes: [app-uploads:/app/uploads]
+    depends_on: [mysql, chromadb]
+volumes:
+  mysql-data:
+  chroma-data:
+  app-uploads:

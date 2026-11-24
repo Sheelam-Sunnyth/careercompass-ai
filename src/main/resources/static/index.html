@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerCompass AI</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <main id="auth-screen" class="auth-shell">
+    <section class="auth-hero"><span class="eyebrow">CAREERCOMPASS AI</span><h1>Turn career effort into confident progress.</h1><p>Analyse your resume, prepare for interviews, close skill gaps, and keep every application in one focused workspace.</p></section>
+    <section class="auth-card"><div id="auth-content"></div></section>
+  </main>
+  <div id="app-screen" class="app-shell hidden">
+    <aside class="sidebar"><a href="#overview" class="brand">Career<span>Compass</span><small>AI CAREER ASSISTANT</small></a><nav id="nav">
+      <button data-page="overview">Overview</button><button data-page="profile">My Profile</button><button data-page="resumes">Resume Analyzer</button><button data-page="jobs">Job Matcher</button><button data-page="interviews">Interview Prep</button><button data-page="roadmaps">Learning Roadmap</button><button data-page="tracker">Job Tracker</button><button data-page="chat">AI Career Assistant</button><button data-page="settings">Settings</button><button id="logout">Logout</button>
+    </nav></aside>
+    <section class="workspace"><header><div><span class="eyebrow" id="page-kicker">WORKSPACE</span><h2 id="page-title">Overview</h2></div><div id="user-chip"></div></header><div id="content" class="content"></div></section>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
